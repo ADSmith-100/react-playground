@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./App.css";
-import Counter from "./state/Counter/Counter.js";
+import HelloWorld from "./state-drills/HelloWorld";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <Counter />
+        <HelloWorld />
       </div>
     );
   }
