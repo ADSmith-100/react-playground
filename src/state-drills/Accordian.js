@@ -5,24 +5,33 @@ class Accordian extends React.Component {
 
   state = {
     currentSectionIndex: 0,
-    visibility: false,
+  };
+
+  handleButtonClick = (index) => {
+    console.log("button clicked!", { index });
+    this.setState({ currentSectionIndex: index });
   };
 
   render() {
-    const currentSection = this.props.sections[this.state.currentSectionIndex];
-    if (this.state.visibility) {
-        return (
-            const items = this.props.sections.map((section, index) => (
-      <li key={index}>
-        {section.title}
-        <p className="content">{currentSection.content}</p>
-        <button>+</button>
+    const buttons = this.props.sections.map((sections, index) => (
+      <li
+        className={`accordian-item ${
+          this.state.currentSectionIndex === index ? "open" : "closed"
+        }`}
+        key={index}
+      >
+        <button onClick={() => this.handleButtonClick(index)}>
+          {sections.title}
+        </button>
+        <p key={index.content}>{sections.content}</p>
       </li>
     ));
-        )}
 
-
-    return <div>{items}</div>;
+    return (
+      <div>
+        <ul>{buttons}</ul>
+      </div>
+    );
   }
 }
 

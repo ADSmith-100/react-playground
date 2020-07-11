@@ -13,3 +13,7 @@
   background-color: wheat;
   color: firebrick;
 }
+
+.accordian-item.closed p {
+  display: none;
+}
